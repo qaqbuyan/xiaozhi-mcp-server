@@ -1,0 +1,81 @@
+# 管道服务连接配置
+reconnection:
+  initial_backoff: 1 # 初始重连等待时间(秒)
+  max_backoff: 600 # 最大重连等待时间(秒)
+  reconnect_attempt: 0 # 当前重连尝试次数(初始为0)
+  backoff: 1 # 当前退避时间(初始为1秒)
+
+# RSS 配置
+rss:
+  # 按照下面的规范可以批量添加
+  - name: "卟言博客"  # RSS 订阅源名称
+    url: "https://qaqbuyan.com:88/%E4%B9%94%E5%AE%89%E6%96%87%E7%AB%A0/rss"  # RSS 订阅源地址
+  #- name: "测试1"
+    #url: "https://example.com/rss2.xml"
+  # 其他 RSS 订阅源...
+  #- name: "测试2"
+    #url: "https://example.com/rss.xml"
+
+# WebSocket端点配置
+endpoint:
+  # MCP服务器WebSocket端点(必须以wss://或ws://开头)
+  url: ""
+
+# HTTP请求头配置
+http_headers:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+
+# B站API配置
+bilibili_api:
+  web_location: 333.1007  # 网页位置标识符，用于定位网页
+  # 认证配置
+  auth:
+    csrf_token: "7c85c12a0801fe7420f4b6d55b65fab5"  # B站API请求所需的CSRF令牌，用于防跨站请求伪造
+    cookie: "" # 完整的B站登录Cookie，包含用户认证信息
+  # 电影查询(分区查询)
+  movie:
+    ps: 12  # 每页返回的记录数量
+    pn: 1   # 当前页码
+    rid: 23 # 分区ID，23 代表电影
+  # 观看历史
+  history:
+    max: 0  # 历史记录的最大时间戳，0 表示从最新记录开始查询
+    view_at: 0  # 观看时间戳，0 表示不限制观看时间
+    ps: 20  # 每页返回的记录数量
+  # 热门视频
+  hot_videos:
+    pn: 1  # 当前页码
+    ps: 20  # 每页返回的记录数量
+  # 追番查询
+  chasing_fan:
+    day_before: 2 # 查询追番信息时，向前查询的天数，用于获取过去指定天数内的追番数据
+    day_after: 4 # 查询追番信息时，向后查询的天数，用于获取未来指定天数内的追番数据
+    season_type: 4 # 追番的类型，4 代表特定的追番类型，不同的数值对应不同的番剧分类
+  # 直播配置
+  live:
+    roomid: 4365864  # 直播间ID，可以获取该直播间的弹幕以及发送弹幕
+    # 弹幕配置
+    danmu:
+      color: 16777215  # 弹幕颜色，16777215 代表白色
+      fontsize: 25  # 弹幕字体大小，25 为默认大小
+      mode: 1  # 弹幕模式，1 代表滚动弹幕
+      bubble: 0  # 弹幕气泡样式，0 代表无气泡
+  # 推荐视频配置
+  recommended:
+    last_showlist: "av_n_114498123863215,av_n_114523944001455,av_n_114603350690945,av_n_114532282275337,av_n_114635462153136,av_n_114641535506235,ad_n_5614_114645545256424,av_n_114596253798513,av_n_114628734490382,av_n_114641367793838"  # 上次展示的视频列表ID，用于推荐算法参考
+    web_location: 1430650  # 网页位置标识符，1430650表示推荐页面
+    y_num: 3  # 推荐算法参数
+    fresh_type: 4  # 内容新鲜度类型
+    fresh: 1  # b站的1小时新鲜度索引, 内容新鲜度索引, 刷新次数，其实这几个参数都是一样的
+    ps: 12  # 每页显示数量
+    last_y_num: 4  # 上次推荐多样性参数
+    screen: "654-880"  # 屏幕分辨率
+    uniq_id: 1510065579252  # 唯一标识符，用于追踪请求
+    fetch_count: 20  # 推荐视频获取数量
+
+# SVN仓库配置
+svn:
+  repo_url: ""  # 地址
+  username: ""  # 用户
+  password: ""  # 密码
+  limit: 10  # 默认日志条目数
