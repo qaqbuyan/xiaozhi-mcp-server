@@ -10,8 +10,7 @@ def get_room_base_info(mcp: FastMCP):
     """获取B站直播间基本信息的工具函数"""
     @mcp.tool()
     def get_room_base_info(room_short_ids):
-        """
-        获取B站直播间基本信息
+        """获取B站直播间基本信息
         Args:
             room_short_ids (list): 直播间短ID列表
         Returns:

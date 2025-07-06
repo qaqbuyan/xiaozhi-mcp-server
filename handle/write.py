@@ -7,7 +7,7 @@ async def write_data(websocket, process):
     try:
         while True:
             message = await websocket.recv()
-            logger.debug(f"<< {message[:120]}...")
+            logger.info("收到响应...")
             if not isinstance(message, str):
                 if isinstance(message, bytes):
                     message = message.decode('utf-8')

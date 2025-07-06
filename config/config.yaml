@@ -5,6 +5,15 @@ reconnection:
   reconnect_attempt: 0 # 当前重连尝试次数(初始为0)
   backoff: 1 # 当前退避时间(初始为1秒)
 
+# WebSocket端点配置
+endpoint:
+  # MCP服务器WebSocket端点(必须以wss://或ws://开头)
+  url: ""
+
+# HTTP请求头配置
+http_headers:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+
 # RSS 配置
 rss:
   # 按照下面的规范可以批量添加
@@ -15,15 +24,6 @@ rss:
   # 其他 RSS 订阅源...
   #- name: "测试2"
     #url: "https://example.com/rss.xml"
-
-# WebSocket端点配置
-endpoint:
-  # MCP服务器WebSocket端点(必须以wss://或ws://开头)
-  url: ""
-
-# HTTP请求头配置
-http_headers:
-  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 
 # B站API配置
 bilibili_api:

@@ -4,7 +4,6 @@ import requests
 from datetime import datetime
 from config.loader import load_config
 from mcp.server.fastmcp import FastMCP
-from config.path import get_config_path
 from utils.bilibili.wbi_signed import get_wbi_signed
 
 config = load_config()
@@ -45,7 +44,6 @@ def get_bilibili_recommended_videos(mcp: FastMCP):
                     4.时长单位是秒，需要自行转换为分钟或小时。
         """
         signed = get_wbi_signed()
-        config_path = get_config_path()
         fetch_count = max(fetch_row, 4)
         url = "https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd"
         params = {
@@ -67,7 +65,7 @@ def get_bilibili_recommended_videos(mcp: FastMCP):
             "w_rid": signed['w_rid'],
             "wts": signed['wts']
         }
-        cache_dir = os.path.dirname(config_path)
+        cache_dir = os.path.join(os.getcwd(), 'tmp')
         cache_file = os.path.join(cache_dir, 'bilibili_recommended_videos_cache.tmp')
         try:
             if os.path.exists(cache_file) and os.path.getsize(cache_file) > 0:
@@ -76,7 +74,7 @@ def get_bilibili_recommended_videos(mcp: FastMCP):
                     cached_ids = f.read().strip()
                     if cached_ids:
                         params["last_showlist"] = cached_ids
-                        logger.info(f"使用缓存中的视频ID列表，共 {len(cached_ids.split(','))} 个ID")
+                        logger.info(f"使用缓存中的视频ID列表，共 {len(cached_ids.split(', '))} 个ID")
         except Exception as e:
             logger.warning(f"读取缓存文件失败: {e}")
         headers = {
@@ -145,10 +143,8 @@ def get_bilibili_recommended_videos(mcp: FastMCP):
                 elif sort_by == 'high_likes':
                     videos = sorted(videos, key=lambda x: int(x['点赞'].replace('万','000')) if '万' in str(x['点赞']) else int(x['点赞']) if str(x['点赞']).isdigit() else 0, reverse=True)
                     videos = [videos[0]] if videos else []
-                cache_dir = os.path.dirname(config_path)
                 try:
                     os.makedirs(cache_dir, exist_ok=True)
-                    cache_file = os.path.join(cache_dir, 'bilibili_recommended_videos_cache.tmp')
                     with open(cache_file, 'w', encoding='utf-8') as f:
                         f.write(video_ids)
                     logger.info("缓存文件已写入")

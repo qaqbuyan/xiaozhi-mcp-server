@@ -7,7 +7,7 @@ from mcp.server.fastmcp import FastMCP
 logger = logging.getLogger('必应搜索')
 
 def bing_search(mcp: FastMCP):
-    """必应搜索服务"""
+    """必应搜索"""
     @mcp.tool()
     def bing_search(search: str, pagination: int = None) -> dict:
         """用于在必应搜索引擎中搜索内容，当需要搜索网页内容时使用该工具。

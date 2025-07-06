@@ -1,8 +1,8 @@
+import sys
 import asyncio
 import logging
 import websockets
 import subprocess
-import sys
 from typing import Callable
 from handle.write import write_data
 from handle.read import read_data
