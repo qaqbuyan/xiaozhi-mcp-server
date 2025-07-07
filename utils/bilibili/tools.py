@@ -2,7 +2,6 @@ import logging
 from mcp.server.fastmcp import FastMCP
 from utils.bilibili.user import query_bilibili_user
 from utils.bilibili.movie import get_bilibili_movie
-from utils.bilibili.hot.search import get_bilibili_hot_search
 from utils.bilibili.chasing_fan import get_bilibili_chasing_fan
 from utils.bilibili.hot.videos import get_bilibili_popular_videos
 from utils.bilibili.history.live import get_bilibili_history_live
@@ -26,8 +25,6 @@ def register_bilibili_tools(mcp: FastMCP):
     get_bilibili_chasing_fan(mcp)
     # 电影查询(分区查询)
     get_bilibili_movie(mcp)
-    # 热搜查询
-    get_bilibili_hot_search(mcp)
     # 查询用户空间
     query_bilibili_user(mcp)
     # 查询直播弹幕

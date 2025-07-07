@@ -47,6 +47,10 @@ https://www.bilibili.com/video/BV1wu3bzFEF4/
 - 今日油价
 - 汇率查询
 - 标准体重
+- 热门搜索
+    - 微博
+    - 哔哩哔哩
+    - 百度
 - 记忆体
     - 记忆体查询
     - 记忆体存储
@@ -82,7 +86,6 @@ https://www.bilibili.com/video/BV1wu3bzFEF4/
         - 时间最新
         - 弹幕最多
         - 弹幕最少
-    - 今日热搜
     - 热门视频
     - 直播相关
         - 获取弹幕
