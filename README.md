@@ -37,6 +37,7 @@ https://www.bilibili.com/video/BV1wu3bzFEF4/
 
 ## 自带功能
 
+- 查询火车车票
 - 查询 SVN 提交记录
     - 获取 SVN 仓库的最后一次提交日志
     - 查询 SVN 仓库第几个到第几个版本号的提交日志

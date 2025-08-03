@@ -1,7 +1,4 @@
 import logging
-import requests
-from bs4 import BeautifulSoup
-from config.loader import load_config
 from mcp.server.fastmcp import FastMCP
 from utils.recipe.chinese_recipe_details import get_chinese_recipe_details
 

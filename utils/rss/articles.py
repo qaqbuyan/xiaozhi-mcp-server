@@ -28,7 +28,7 @@ def get_rss_articles(mcp: FastMCP):
                 }
         """
         try:
-            logger.info(f"开始获取 {'所有' if not rss_name else rss_name} RSS 文章")
+            logger.info(f"开始获取 {'所有' if not rss_name else rss_name} RSS 文章...")
             config = load_config()
             # 获取所有 RSS 订阅源
             all_rss_list = [(item['name'], item['url']) for item in config.get('rss', [])]

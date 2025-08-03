@@ -14,6 +14,29 @@ endpoint:
 http_headers:
   user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 
+# 铁路
+railway:
+  # 中国铁路 12306
+  china:
+      #配置参数，一般情况下不需要修改
+      guides_status: false
+      high_contrast_mode: "defaltMode"
+      cursor_status: false
+      jc_save_wfdc_flag: "dc"
+      cookie:
+        #如果cookie失效，可以手动更新cookie
+          # 1.打开 https://www.12306.cn/index/index.html
+          # 2.输入出发地以及目的地
+          # 3.点击查询
+          # 4.在新的页面上获取到cookie，将cookie中对应的值复制到这里
+        #然后关闭服务，重新启动服务，即可生效
+        _uab_collina: 175420460588186137916102
+        JSESSIONID: "DEBFADFAE8B66E0158A39FFABA550B0F"
+        route: "c5c62a339e7744272a54643b3be5bf64"
+        BIGipServerotn: 1624834314.64545.0000
+        BIGipServerportal: 3134456074.16671.0000
+        BIGipServerpassport: 870842634.50215.0000
+
 # RSS 配置
 rss:
   # 按照下面的规范可以批量添加

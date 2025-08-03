@@ -6,6 +6,7 @@ from utils.rss.tools import register_rss_tools
 from utils.games.tools import register_games_tools
 from utils.recipe.tools import register_recipe_tools
 from handle.packaging_flow import safe_stream_wrapper
+from utils.railway.tools import register_railway_tools
 from utils.bilibili.tools import register_bilibili_tools
 from utils.hot_search.tools import register_hot_search_tools
 
@@ -28,4 +29,6 @@ def register(mcp: FastMCP):
     register_games_tools(mcp)
     # 注册热搜相关工具
     register_hot_search_tools(mcp)
+    # 注册铁路相关工具
+    register_railway_tools(mcp)
     logger.info("所有工具注册完成")
